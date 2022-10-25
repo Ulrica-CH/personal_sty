@@ -1,0 +1,53 @@
+@import '../../Form/style/common.scss';
+$grey: #e0e0e2;
+
+.mini-search-input {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+
+  .magnifier-icon,
+  .magnifier-icon-active {
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+  }
+
+  .magnifier-icon {
+    fill: #585964;
+  }
+  .magnifier-icon-active {
+    fill: $primary-color;
+  }
+
+  input {
+    height: 26px;
+    box-sizing: border-box;
+    padding-left: 24px;
+    padding-right: 24px;
+    color: #282938;
+    border: 1px solid $grey;
+    font-size: 12px;
+    background-color: $input-background-gray;
+    &:focus {
+      @include focusStyle();
+      outline: none;
+    }
+    &::placeholder {
+      color: #888890;
+    }
+  }
+
+  .mini-del-icon {
+    fill: #b7b7bc;
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+  }
+}

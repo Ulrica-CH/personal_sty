@@ -1,0 +1,87 @@
+@import './common.scss';
+$form-prefix: #{$prefixCls};
+
+.#{$form-prefix}form-item {
+  width: 100%;
+  display: flex;
+  &-info {
+    height: 30px;
+    line-height: 30px;
+  }
+
+  &-required {
+    color: $form-item-error-color;
+  }
+  &-error-msg {
+    display: flex;
+    margin-top: 8px;
+    color: $form-item-error-color;
+    align-items: center;
+    font-size: $font-size-sm;
+  }
+  &-icon {
+    margin-right: 5px;
+    fill: $form-item-error-icon-color;
+  }
+
+  &-title-label {
+    display: inline-flex;
+    line-height: 16px;
+    padding-right: 5px;
+    font-weight: normal;
+    flex: 0 0 100px;
+    color: $form-item-color;
+    font-size: $form-item-font-size;
+  }
+
+  &-disabled {
+    opacity: $disabled-opacity;
+  }
+  &-bold {
+    &-title-label {
+      font-weight: bold;
+    }
+  }
+  &-base {
+    &-title-label {
+      align-items: flex-start;
+      padding-top: 7px;
+    }
+  }
+  &-mini {
+    font-size: $form-item-font-size-mini;
+
+    &-title-label {
+      font-size: $form-item-font-size-mini;
+    }
+    &-base {
+      &-title-label {
+        padding-top: 6px;
+      }
+    }
+  }
+  &-top {
+    &-title-label {
+      align-items: flex-start;
+    }
+  }
+  &-bottom {
+    &-title-label {
+      align-items: flex-end;
+    }
+  }
+  &-center {
+    &-title-label {
+      align-items: center;
+    }
+  }
+  &-right {
+    &-title-label {
+      text-align: right;
+      justify-content: flex-end;
+    }
+  }
+  &-input {
+    flex: 1 1 auto;
+  }
+}

@@ -1,0 +1,102 @@
+@import '../../Form/style/common.scss';
+.quick-filter-comp-overlay {
+  min-width: 188px !important;
+  max-height: 450px;
+  overflow-y: auto;
+  border-top: none;
+
+  .time-group {
+    padding: 15px;
+    font-size: $font-size-sm;
+    .radio-label {
+      display: flex;
+      margin-bottom: 7px;
+    }
+  }
+
+  .time-group-title {
+    font-weight: bold;
+    color: $text-color;
+    font-size: $font-size-sm;
+    margin-bottom: 10px;
+  }
+
+  .filter-diag-oper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 18px 19px 18px;
+  }
+}
+
+.quick-filter-comp {
+  .dropdown {
+    width: unset;
+  }
+  .dropdown-filter {
+    &.radius {
+      border-radius: $input-radius;
+    }
+    background: #fff;
+    border: 1px solid $border-color-base;
+    color: $text-color;
+    font-size: $font-size-base;
+    line-height: 1;
+    padding: 0 10px;
+    margin-right: 20px;
+    height: 33px;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
+      @include hoverStyle();
+    }
+    .icon-filter {
+      position: relative;
+      vertical-align: middle;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+.quick-filter-comp-group {
+  border-top: 1px solid $border-color-base;
+  padding: 15px 17px 8px 17px;
+  font-size: $font-size-sm;
+  width: 188px;
+
+  .checkbox-label {
+    display: flex;
+    margin-bottom: 7px;
+  }
+  .double-column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .checkbox-label {
+      flex-basis: 70px;
+    }
+  }
+  .group-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .title {
+    font-weight: bold;
+  }
+
+  .clear {
+    color: #666;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .all {
+    color: $text-color;
+    cursor: pointer;
+  }
+}
+.duration-footer {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,28 @@
+@import '../../Select/style/index.scss';
+@import '../../Select/style/common.scss';
+
+.#{$prefixCls}dropdown {
+  &-list {
+    &-wrap {
+      @extend .#{$prefixCls}select-option-wrap;
+    }
+    &-wrap.dropdown-list-overlay {
+      @include selectOptionWrapShow();
+      display: block;
+      border: none;
+      box-shadow: none;
+      position: relative;
+    }
+    &-content {
+      @extend .#{$prefixCls}select-option-content;
+    }
+
+    &-item {
+      @extend .#{$prefixCls}select-option-item;
+
+      &:hover {
+        @include selectFocus();
+      }
+    }
+  }
+}

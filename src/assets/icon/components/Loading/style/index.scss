@@ -1,0 +1,181 @@
+@import '../../../styles/assets/constant.scss';
+$offset: 187;
+$duration: 1.4s;
+
+.loading-common {
+  display: inline-block;
+  position: relative;
+  background-color: transparent;
+}
+.#{$prefixCls}loading-wrapper {
+  margin: 10px auto;
+  font-size: 0;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // flex-direction: column;
+  .loading-spinner {
+    width: 100%;
+    height: 100%;
+    animation: rotator $duration linear infinite;
+
+    .path {
+      stroke-dasharray: $offset;
+      stroke-dashoffset: 0;
+      transform-origin: center;
+      stroke: $loading-color;
+      animation: dash $duration ease-in-out infinite;
+    }
+  }
+  .loading-circle {
+    text-align: left;
+    margin: 0 auto;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    line-height: 0;
+  }
+  &.loading-wrapper-vertical {
+    text-align: center;
+    width: 100px;
+    .loading-txt {
+      margin-top: 8px;
+    }
+  }
+  &.loading-wrapper-horizontal {
+    display: inline-flex;
+    align-items: center;
+    text-align: left;
+    margin: 0 auto;
+    .loading-txt {
+      margin-left: 8px;
+    }
+  }
+  .loading-txt {
+    margin: 0 auto;
+    font-size: $font-size-sm;
+    color: $loading-text;
+  }
+  .loading-lg {
+    @extend .loading-common;
+    font-size: $loading-lg-size;
+  }
+  .loading-md {
+    @extend .loading-common;
+    font-size: $loading-md-size;
+  }
+  .loading-sm {
+    @extend .loading-common;
+    font-size: $loading-sm-size;
+  }
+}
+
+.#{$prefixCls}loading-bar {
+  height: 3px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  .loading-bar-background {
+    position: absolute;
+    background-color: $loading-bar-bg;
+    width: 100%;
+    height: 100%;
+  }
+  .loading-bar-foreground {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    background-color: $loading-color;
+    width: 20%;
+    height: 100%;
+    animation: loading-bar 1s ease-in-out 0s infinite;
+  }
+}
+
+.#{$prefixCls}loading-box {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 70px;
+  color: $loading-text;
+  font-size: $font-size-lg;
+  background-color: #fff;
+  padding: 0 20px;
+  border-radius: $border-radius-base;
+
+  .loading-box-icon {
+    margin-right: 8px;
+    transform-origin: center left;
+  }
+}
+
+.#{$prefixCls}loading-global {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: $loading-text;
+  font-size: $font-size-lg;
+  background-color: $modal-loading-wrap-bg-color;
+  z-index: $global-z-index;
+  overflow: hidden;
+  outline: 0;
+}
+
+@keyframes dash {
+  0% {
+    background-color: $loading-color;
+  }
+  50% {
+    stroke-dashoffset: calc($offset/4);
+    transform: rotate(135deg);
+  }
+  100% {
+    background-color: $loading-color;
+  }
+}
+@keyframes spin_sm {
+  0% {
+    background-color: $loading-color;
+  }
+  5% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: $loading-color;
+  }
+}
+@keyframes loading-bar {
+  from {
+    right: 100%;
+  }
+  to {
+    right: -20%;
+  }
+}
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: $offset;
+  }
+  50% {
+    stroke-dashoffset: calc($offset/4);
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: $offset;
+    transform: rotate(450deg);
+  }
+}

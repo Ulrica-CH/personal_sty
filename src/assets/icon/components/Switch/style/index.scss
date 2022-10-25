@@ -1,0 +1,44 @@
+#{$prefixCls}.switch {
+  position: relative;
+  height: $switch-height-base;
+  width: $switch-height-base * 2;
+  border-radius: calc( $switch-height-base / 2 );
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: $input-font-size-base - 2px;
+  background-color: $switch-off-color;
+  transition: background-color 0.3s;
+  // padding: 1px 10px 1px 18px;
+  line-height: $switch-height-base;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: $disabled-opacity;
+    // background-color: $switch-off-disable-color;
+    // &.active {
+    //   // background-color: $switch-on-disable-color;
+
+    // }
+  }
+  .icon {
+    transition: all 0.3s;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    margin-left: $switch-margin;
+    top: 2px;
+    width: $switch-btn-size;
+    height: $switch-btn-size;
+    z-index: 1;
+    box-shadow: $switch-shadow;
+  }
+
+  &.active {
+    background-color: $switch-active-color;
+    .icon {
+      margin-left: $switch-active-margin;
+    }
+  }
+}

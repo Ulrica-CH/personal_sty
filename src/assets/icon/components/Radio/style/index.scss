@@ -1,0 +1,129 @@
+@import "../../Form/style/common.scss";
+
+@mixin active-before($bg-color) {
+  background-color: $bg-color;
+  border-color: $bg-color;
+  color: $radio-btn-active-text-color;
+}
+
+.#{$prefixCls}radio {
+  display: none;
+}
+
+.#{$prefixCls}radio-label {
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  font-size: $radio-font-size;
+  line-height: $radio-line-height;
+  cursor: pointer;
+  white-space: nowrap;
+  &.disabled {
+    @include disabledStyle();
+    background-color: transparent;
+    .radio-icon {
+      fill: $radio-disable-bg;
+    }
+  }
+  &.checked {
+    .radio-icon {
+      fill: $primary-color;
+    }
+  }
+
+  &:hover {
+    .radio-icon {
+      stroke: $primary-color;
+    }
+  }
+
+  &.mini {
+    line-height: $radio-mini-line-height;
+    font-size: $radio-mini-font-size;
+    .radio-icon {
+      width: $radio-mini-height;
+      height: $radio-mini-width;
+    }
+  }
+}
+.radio-icon {
+  margin-right: $radio-icon-margin-right;
+  stroke: #9fa3ac;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.#{$prefixCls}radio-btn {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: $radio-btn-bg-color;
+  cursor: pointer;
+  color: $radio-btn-color;
+  font-size: $radio-btn-font-size;
+  font-weight: normal;
+
+  .radio-btn-item {
+    position: relative;
+    height: $radio-btn-height;
+    display: inline-block;
+    border-color: $radio-btn-border-color;
+    border-style: solid;
+    border-width: $radio-btn-border;
+    border-right: 0px;
+    padding: 0 $radio-btn-padding;
+    text-align: center;
+    line-height: $radio-btn-line-height;
+    &:hover {
+      background-color: $radio-btn-hover-bg;
+    }
+
+    &:first-child {
+      border-radius: $radio-btn-border-radius 0 0 $radio-btn-border-radius;
+    }
+    &:last-child {
+      border-right: $radio-btn-border solid $radio-btn-border-color;
+      border-radius: 0px $radio-btn-border-radius $radio-btn-border-radius 0px;
+    }
+    &.active {
+      @include active-before($radio-btn-active-bg);
+    }
+    &.disabled {
+      cursor: not-allowed;
+      opacity: $radio-disable-opacity;
+    }
+  }
+  &.mini {
+    .radio-btn-item {
+      height: $radio-btn-mini-height;
+      line-height: $radio-btn-mini-line-height;
+      min-width: unset;
+    }
+  }
+  &.disabled {
+    cursor: not-allowed;
+    opacity: $radio-disable-opacity;
+    .radio-btn-item {
+      background-color: $radio-btn-bg-color;
+      &.active {
+        background-color: $radio-btn-disable-bg;
+        border-color: $radio-btn-disable-bg;
+        &::before {
+          background-color: $radio-btn-disable-bg;
+        }
+      }
+    }
+  }
+  &.dark {
+    .radio-btn-item {
+      &.active {
+        @include active-before($radio-btn-dark-bg);
+      }
+    }
+  }
+  &.green {
+    .radio-btn-item {
+      &.active {
+        @include active-before($radio-btn-green-bg);
+      }
+    }
+  }
+}

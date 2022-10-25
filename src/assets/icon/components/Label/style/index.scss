@@ -1,0 +1,218 @@
+@import "../../../styles/assets/constant.scss";
+
+/**
+ * @atom Label
+ * @section Label
+ * @modifiers
+ * info
+ * cavity
+ * success
+ * alarm
+ * warning
+ * danger
+ * error
+ * failed
+ * dark
+ */
+.#{$prefixCls}label {
+  display: inline-block;
+  font-size: $label-font-size;
+  font-weight: normal;
+  height: $label-height;
+  line-height: $label-line-height;
+  color: $label-color;
+  padding: $label-padding;
+  border-radius: $label-border-radius;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+
+  .#{$prefixCls}label-content {
+    display: inline-block;
+  }
+  &.max-width {
+    .#{$prefixCls}label-content {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &-icon {
+    // 右侧要多预留1向素的宽度
+    width: $label-icon-width + $label-icon-padding * 2 + 1px;
+    height: $label-icon-width + $label-icon-padding * 2;
+    padding: $label-icon-padding;
+    padding-right: $label-icon-padding + 1px;
+    position: absolute;
+    fill: $label-icon-fill;
+    top: 0;
+    left: 2px;
+
+    & + .#{$prefixCls}label-content {
+      margin-left: 2px;
+    }
+  }
+
+  &.circle {
+    padding: 0 $label-circle-padding;
+    border-radius: $label-circle-radius;
+  }
+
+  &.has-icon {
+    position: relative;
+    padding-left: $label-icon-width + $label-icon-padding * 2 + 2px;
+
+    &.circle {
+      padding-left: $label-icon-width + $label-icon-padding + $label-icon-padding + 2px + (calc($label-circle-padding / 2));
+
+      .#{$prefixCls}label-icon {
+        left: calc($label-circle-padding / 2);
+      }
+    }
+  }
+
+  &.closable {
+    padding-right: 16px;
+  }
+
+  &-icon-close {
+    position: absolute;
+    right: 3px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    stroke: $white;
+  }
+}
+
+@mixin labelStyle(
+  $base-bg-color,
+  $border-color: $base-bg-color,
+  $weak-bg-color: $base-bg-color,
+  $light-weak-bg-color: $base-bg-color
+) {
+  background-color: $base-bg-color;
+  border-color: $base-bg-color;
+
+  &.light {
+    background-color: #fff;
+    color: $base-bg-color;
+    border-color: $border-color;
+
+    // 需要压住边框
+    .#{$prefixCls}label-icon {
+      background-color: $base-bg-color;
+      left: -1px;
+      border-top-left-radius: $label-border-radius;
+      border-bottom-left-radius: $label-border-radius;
+      width: $label-icon-width + $label-icon-padding * 2 + 1px;
+      height: $label-icon-width + $label-icon-padding * 2 + 2px;
+      padding: $label-icon-padding + 1px;
+    }
+
+    // 针对圆角 需要变换
+    &.circle {
+      .#{$prefixCls}label-icon {
+        width: $label-icon-width + $label-icon-padding * 2 + 1px + calc($label-circle-padding / 2);
+        height: $label-icon-width + $label-icon-padding * 2 + 2px;
+        left: -1px;
+        border-top-left-radius: $label-circle-radius;
+        border-bottom-left-radius: $label-circle-radius;
+        padding-left: calc($label-circle-padding / 2);
+      }
+    }
+
+    .#{$prefixCls}label-icon-close {
+      stroke: $base-bg-color;
+    }
+  }
+
+  &.weak {
+    background-color: $weak-bg-color;
+    border-color: $border-color;
+    color: $base-bg-color;
+
+    .#{$prefixCls}label-icon {
+      fill: $base-bg-color;
+    }
+
+    .#{$prefixCls}label-icon-close {
+      stroke: $base-bg-color;
+    }
+
+    &.light {
+      background-color: $light-weak-bg-color;
+      color: $base-bg-color;
+      border-color: $light-weak-bg-color;
+    }
+  }
+}
+
+.#{$prefixCls}label-warning {
+  @include labelStyle(
+    $label-base-warning-bg-color,
+    $label-light-warning-border-color,
+    $label-light-warning-bg-color,
+    $label-light-weak-warning-bg-color
+  );
+}
+
+.#{$prefixCls}label-info {
+  @include labelStyle($label-info-color, $label-info-border-color, $label-info-bg-color, $label-inof-sub-bg-color);
+}
+
+.#{$prefixCls}label-error {
+  @include labelStyle(
+    $label-base-error-bg-color,
+    $label-light-error-border-color,
+    $label-weak-error-bg-color,
+    $label-light-weak-error-bg-color
+  );
+}
+.#{$prefixCls}label-selectTag {
+  background: $label-base-select-bg-color;
+  border-color: $label-select-border-color;
+  color: $label-select-text-color;
+}
+
+.#{$prefixCls}label-alarm {
+  @include labelStyle($label-base-alarm-bg-color);
+}
+.#{$prefixCls}label-dark {
+  @include labelStyle($label-dark-color);
+}
+
+.#{$prefixCls}label-success {
+  @include labelStyle(
+    $label-base-success-bg-color,
+    $label-light-success-border-color,
+    $label-weak-success-bg-color,
+    $label-light-weak-success-bg-color
+  );
+}
+.#{$prefixCls}label-failed {
+  @include labelStyle(
+    $label-base-failed-bg-color,
+    $label-light-failed-border-color,
+    $label-weak-failed-bg-color,
+    $label-light-weak-failed-bg-color
+  );
+}
+
+.#{$prefixCls}label-pink {
+  @include labelStyle(
+    $label-base-pink-bg-color,
+    $label-light-pink-border-color,
+    $label-weak-pink-bg-color,
+    $label-light-weak-pink-bg-color
+  );
+}
+.#{$prefixCls}label-cavity {
+  @include labelStyle($label-cavity-color, $label-cavity-color, $label-cavity-bg-color);
+}
+.#{$prefixCls}label-danger {
+  @include labelStyle($label-danger-bg-color);
+}

@@ -1,0 +1,134 @@
+/**
+ * @section Modal
+ * @structure Modal
+ * @markup
+ *  <div style="width: 500px;">
+ *    <div class="modal-content">
+ *      <div class="modal-header">弹窗标题</div>
+ *      <div class="modal-body">弹窗内容</div>
+ *      <div class="modal-footer">
+ *        <button class="btn btn-cancel">取消</button>
+ *        <button class="btn btn-primary">确定</button>
+ *      </div>
+ *    </div>
+ *  </div>
+ *  <br />
+ */
+
+.#{$prefixCls}modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $modal-bg-color;
+  z-index: $modal-z-index;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  outline: 0;
+  display: flex;
+  // display: none;
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: $modal-content-bg-color;
+    background-clip: padding-box;
+    border-radius: $modal-content-border-radius;
+    box-shadow: $modal-content-box-shadow;
+    z-index: $modal-content-z-index;
+
+    .modal-header {
+      height: $modal-header-height;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $modal-header-color;
+      padding: $modal-header-padding;
+      background-color: $modal-header-bg-color;
+      font-size: $modal-header-font-size;
+      font-weight: bold;
+      border-top-left-radius: $modal-content-border-radius;
+      border-top-right-radius: $modal-content-border-radius;
+
+      .close-icon {
+        cursor: pointer;
+        stroke: $modal-header-close-icon-stroke;
+        float: right;
+        width: $modal-header-close-icon-width;
+        height: $modal-header-close-icon-width;
+        padding: $modal-header-close-icon-padding;
+
+        &:hover {
+          background-color: $modal-header-close-icon-hover-bg-color;
+        }
+      }
+    }
+    .modal-body {
+      flex: $modal-body-flex;
+      overflow-y: auto;
+      padding: $modal-body-padding;
+      position: relative;
+    }
+    .modal-footer {
+      text-align: right;
+      padding: $modal-footer-padding;
+      padding-top:0;
+      .btn {
+        margin-left: 10px;
+      }
+
+      .footer-btn-wrap {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+    .loading-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $modal-loading-wrap-width;
+      height: $modal-loading-wrap-width;
+      background-color: $modal-loading-wrap-bg-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: $modal-loading-wrap-z-index;
+    }
+  }
+  .modal-body-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+}
+.modal-fade-in-enter {
+  display: flex;
+}
+.modal-fade-in-active {
+  display: flex;
+}
+.modal-fade-in-enter-done {
+  display: flex;
+}
+
+.modal-zoom-up-enter {
+  opacity: 0;
+  transform: scale(0.7);
+}
+.modal-zoom-up-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.modal-zoom-up-exit {
+  opacity: 1;
+}
+.modal-zoom-up-exit-active {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 300ms, transform 300ms;
+}

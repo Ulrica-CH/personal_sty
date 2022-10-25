@@ -1,0 +1,38 @@
+.#{$prefixCls}truncate-tip {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  .has-num {
+    background: #ffffff;
+    border: 1px solid $border-color-base;
+    box-sizing: border-box;
+    border-radius: $label-border-radius;
+    line-height: $label-line-height;
+    flex-shrink: 0;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: $base-color;
+  }
+}
+.#{$prefixCls}pop-box {
+  max-width: 30vw;
+  max-height: 30vh;
+  overflow: auto;
+}
+.#{$prefixCls}has-none {
+  color: $shallow-color;
+  width: 100%;
+}
+.computer-width {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10000;
+  opacity: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

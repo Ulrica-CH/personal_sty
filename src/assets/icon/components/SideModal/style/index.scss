@@ -1,0 +1,97 @@
+@import '../../../styles/assets/constant.scss';
+$duration: 0.3s;
+
+/**
+ * @section Modal
+ * @structure Modal
+ * @markup
+ *  <div style="width: 500px;">
+ *    <div class="modal-content">
+ *      <div class="modal-header">弹窗标题</div>
+ *      <div class="modal-body">弹窗内容</div>
+ *      <div class="modal-footer">
+ *        <button class="btn btn-cancel">取消</button>
+ *        <button class="btn btn-primary">确定</button>
+ *      </div>
+ *    </div>
+ *  </div>
+ *  <br />
+ */
+.#{$prefixCls}side-modal {
+  .ant-drawer {
+    &-wrapper-body {
+      padding: $sidemodal-padding;
+    }
+
+    &-header {
+      padding: 13px 0px 13px 15px;
+      display: flex;
+      align-items: center;
+      height: $sidemodal-header-height;
+      min-height: $sidemodal-header-height;
+      background-color: $sidemodal-header-background-color;
+
+      border-bottom: 1px solid $sidemodal-header-border-color;
+    }
+
+    &-title {
+      color: $sidemodal-header-color;
+      font-size: $sidemodal-header-size;
+      font-weight: $sidemodal-header-weight;
+    }
+
+    &-close {
+      padding: calc(($sidemodal-header-height - 24px) / 2);
+      padding-right: 11px;
+      .anticon-close {
+        &:hover{
+          background-image: url('~@ui/components/SideModal/images/side-modal-close-hover.png');
+          background-size: 100% 100%;
+          background-position: 0 0;
+        }
+        svg {
+          display: none;
+        }
+        width: 24px;
+        height: 24px;
+        background-image: url('~@ui/components/SideModal/images/side-modal-close.png');
+        background-repeat: no-repeat;
+        background-size: 16px 16px;
+        background-position: 4px 4px;
+      }
+    }
+
+    &-body {
+      padding: 23px 20px 0px;
+      position: relative;
+    }
+
+    &-footer {
+      border-top: 1px solid $sidemodal-header-border-color;
+      text-align: right;
+
+      .footer-btn-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 10px 9px;
+
+        .#{$prefixCls}btn {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  .loading-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $modal-loading-wrap-width;
+    height: $modal-loading-wrap-width;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: $modal-loading-wrap-z-index;
+  }
+}

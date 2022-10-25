@@ -1,0 +1,60 @@
+@import "../../Form/style/common.scss";
+
+.#{$prefixCls}checkbox-label {
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  font-size: $font-size-base;
+  line-height: $checkbox-lineheight-sm;
+  cursor: pointer;
+  white-space: nowrap;
+  vertical-align: middle;
+  span {
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &.disabled {
+    @include disabledStyle();
+    background-color: transparent;
+  }
+
+  &.mini {
+    line-height: $checkbox-lineheight;
+    font-size: $font-size-sm;
+
+    .checkbox-icon {
+      width: $checkbox-mini-size;
+      height: $checkbox-mini-size;
+      flex: 0 0 $checkbox-mini-size;
+    }
+  }
+
+  .checkbox-icon {
+    width: $checkbox-size;
+    height: $checkbox-size;
+    flex: 0 0 $checkbox-size;
+    margin-right: $checkbox-margin-right;
+    margin-left: $checkbox-margin-left;
+    fill: $checkbox-color-base-color;
+    stroke: $checkbox-color-border-color;
+    stroke-width: 2;
+    border-radius: 2px;
+    &:hover {
+      stroke: $checkbox-color-hover-color;
+    }
+  }
+  &.checked {
+    .checkbox-icon {
+      fill: $checkbox-color-checked;
+      stroke: $checkbox-color-checked;
+      stroke-width: 1;
+    }
+  }
+
+  .checkbox {
+    display: none;
+  }
+}

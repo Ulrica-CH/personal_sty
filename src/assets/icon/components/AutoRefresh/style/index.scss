@@ -1,0 +1,109 @@
+@import '../../Form/style/common.scss';
+
+$auto-rfresh-prefix: #{$prefixCls}auto-refresh;
+
+.#{$auto-rfresh-prefix} {
+  &-value {
+    &-str {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid $border-color-base;
+      border-radius: $auto-refresh-border-radius;
+      background: #fff;
+      height: $auto-refresh-height;
+      line-height: $auto-refresh-height - 2px;
+      padding: 0 $auto-refresh-padding;
+      cursor: pointer;
+      font-size: $auto-refresh-value-fz;
+
+      &:hover {
+        @include hoverStyle();
+      }
+    }
+
+    &-label {
+      color: $auto-refresh-value-label-color;
+    }
+    &-value {
+      color: $auto-refresh-value-value-color;
+    }
+    &-icon {
+      &-zone {
+        padding-left: 5px;
+        display: inline-flex;
+        align-items: center;
+      }
+      &.icon {
+        stroke: none;
+        // transform: rotate(180deg);
+        transition: transform 0.1s;
+        fill: $select-drop-down-close;
+        width: 10px;
+      }
+    }
+  }
+}
+
+.open > .#{$auto-rfresh-prefix} {
+  &-value {
+    &-str {
+      @include focusStyle();
+    }
+  }
+}
+
+.#{$auto-rfresh-prefix}-content {
+  padding-top: 0;
+
+  .popover-inner {
+    padding: 0;
+    @include wrapShadow;
+  }
+}
+
+.#{$auto-rfresh-prefix}-overlay {
+  border-radius: $auto-refresh-overlay-radius;
+
+  .#{$prefixCls}tab-header {
+    border-bottom: 1px solid $border-color-base;
+  }
+  .#{$prefixCls}tab-header-list {
+    .active {
+      font-weight: bold;
+    }
+  }
+
+  .option {
+    font-size: $auto-refresh-overlay-fz;
+    padding: $auto-refresh-overlay-option-padding;
+    margin: $auto-refresh-option-margin;
+
+    .option-label {
+      font-weight: $auto-refresh-option-label-weight;
+      color: $auto-refresh-option-label-color;
+      margin-bottom: $margin-xs;
+    }
+    .option-list {
+      .label-select-item.active {
+        background: $primary-red;
+        border: none;
+      }
+    }
+  }
+
+  .range-wrapper {
+    padding: $auto-refresh-overlay-option-padding;
+    margin: $auto-refresh-option-margin;
+    width: $auto-refresh-overlay-width;
+
+    .ant-picker {
+      width: 100% !important;
+    }
+  }
+  .footer {
+    margin: $auto-refresh-footer-margin;
+    text-align: right;
+    border-top: 1px solid $border-color-base;
+    padding: $auto-refresh-footer-padding;
+  }
+}

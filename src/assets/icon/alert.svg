@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="13px" viewBox="0 0 16 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57 (83077) - https://sketch.com -->
+    <title>编组 3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标ICON规范" transform="translate(-116.000000, -386.000000)" fill-rule="nonzero">
+            <g id="编组-3" transform="translate(116.000000, 386.000000)">
+                <path d="M8.85150076,1.38275751 L15.0613046,11.4668975 C15.350897,11.9371684 15.2044281,12.5531593 14.7341572,12.8427517 C14.5764918,12.9398419 14.3949658,12.9912509 14.2098039,12.9912509 L1.79019612,12.9912509 C1.23791137,12.9912509 0.790196121,12.5435357 0.790196121,11.9912509 C0.790196121,11.806089 0.841605098,11.624563 0.938695357,11.4668975 L7.14849924,1.38275751 C7.4380916,0.912486622 8.05408248,0.766017742 8.52435336,1.05561011 C8.65747618,1.13758702 8.76952386,1.24963469 8.85150076,1.38275751 Z" id="Triangle" fill="#FFCC00"></path>
+                <rect id="Rectangle" fill="#333333" x="7.11111111" y="4.36480348" width="1.77777778" height="4.33333333"></rect>
+                <rect id="Rectangle" fill="#333333" x="7.11111111" y="9.56480348" width="1.77777778" height="1.73333333"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

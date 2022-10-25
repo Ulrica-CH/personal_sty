@@ -1,0 +1,111 @@
+$box-prefix: #{$prefixCls}box;
+
+.#{$box-prefix} {
+  margin: $box-margin;
+  padding: $box-padding;
+  background-color: $box-background;
+  display: flex;
+  flex-direction: column;
+  color: $box-color;
+
+  &-title {
+    display: flex;
+    align-items: center;
+    margin: $box-title-margin;
+    font-size: $box-title-fz;
+    color: $box-title-color;
+    fill: $box-title-color;
+    font-weight: $box-title-weight;
+    position: relative;
+
+    .#{$prefixCls}icon {
+      margin-right: 5px;
+    }
+
+    &-toggle {
+      position: absolute;
+      right: 0;
+      top: 1px;
+      cursor: pointer;
+      font-size: $box-title-toggle-fz;
+      font-weight: $box-title-toggle-weight;
+      color: $box-title-toggle-color;
+      display: inline-flex;
+      align-items: center;
+
+      .#{$box-prefix}-title-toggle-icon {
+        width: $box-title-toggle-icon-size;
+        height: $box-title-toggle-icon-size;
+        margin-right: 5px;
+      }
+
+      &:hover {
+        color: $box-title-toggle-hover-color;
+
+        .#{$box-prefix}-title-toggle-icon {
+          fill: $box-title-toggle-hover-color;
+        }
+      }
+    }
+
+    .right-block {
+      flex: 1;
+      > a {
+        cursor: pointer;
+        font-size: 12px;
+        color: $text-color;
+        font-weight: normal;
+
+        .#{$prefixCls}icon {
+          margin-right: 5px;
+        }
+        &:hover {
+          color: $primary-red;
+        }
+      }
+    }
+  }
+
+  &.shadow {
+    box-shadow: $box-shadow;
+  }
+
+  &.radius {
+    border-radius: $box-radius;
+  }
+
+  &.border {
+    border: 1px solid $box-border-color;
+  }
+
+  &.collapse {
+    .#{$box-prefix}-content {
+      display: none;
+    }
+    .#{$box-prefix}-title {
+      margin-bottom: 0;
+    }
+
+    &.open {
+      .#{$box-prefix}-content {
+        display: block;
+      }
+      .#{$box-prefix}-title {
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid $box-border-color;
+      }
+    }
+  }
+
+  .#{$box-prefix}-loading {
+    display: block;
+    margin: 50px auto;
+  }
+
+  &.with-bg {
+    .box-title {
+      background-color: $box-title-bg;
+    }
+  }
+}

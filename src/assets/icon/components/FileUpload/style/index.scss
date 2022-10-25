@@ -1,0 +1,65 @@
+.file-upload {
+  color: $text-color;
+
+  .file {
+    display: flex;
+
+    &-hide {
+      display: none;
+    }
+    &-name {
+      flex: 1;
+      margin-right: 20px;
+      border-radius: 2px;
+      background-color: #fafafa;
+    }
+
+    .active {
+      box-shadow: 0 0 3px #4384eb;
+      border: 1px solid #4384eb;
+    }
+  }
+
+  .file-status {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 8px 0 0 6px;
+
+    .icon-box {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+
+      .icon {
+        width: 14px;
+        height: 14px;
+        margin-right: 5px;
+      }
+    }
+
+    .file-success {
+      color: #62b929;
+
+      .icon {
+        fill: #62b929;
+      }
+    }
+
+    .file-loading {
+      color: #3a7eea;
+
+      .icon {
+        fill: #3a7eea;
+      }
+    }
+
+    .file-error {
+      color: #db0000;
+
+      .icon {
+        fill: #db0000;
+      }
+    }
+  }
+}

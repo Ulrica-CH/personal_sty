@@ -1,0 +1,113 @@
+.#{$prefixCls}slider-wrapper {
+  padding-top: $slider-wrapper-padding-top;
+  margin-bottom: $slider-wrapper-margin-bottom;
+
+  .slider-thumb {
+    position: relative;
+  }
+
+  .slider-thumb-arrow {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #fff;
+    transform: translateX(-50%);
+  }
+
+  .slider-thumb-value {
+    position: absolute;
+    margin-top: $slider-thumb-value-margin-top;
+    transform: $slider-thumb-value-transform;
+    color: $slider-thumb-value-color;
+    z-index: 1;
+    padding: 3px 10px;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    top: 13px;
+    border-radius: 2px;
+  }
+
+  .max-value-label {
+    color: $slider-max-value-label-color;
+    position: absolute;
+    right: 0;
+    top: 0px;
+  }
+  .rc-slider-mark-text {
+    white-space: nowrap;
+  }
+}
+.horizontal-slider {
+  width: 150px;
+  max-width: 500px;
+  height: 50px;
+  .slider-thumb {
+    outline: none;
+    min-width: 14px;
+    text-align: center;
+    background: #979797;
+    padding-top: 8px;
+    color: $primary-red;
+    background: unset;
+    &:focus {
+      outline: none;
+    }
+
+    .slider-thumb-circle {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid $primary-red;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+      background: #fff;
+      margin: -14px auto 0 auto;
+    }
+  }
+  .slider-track {
+    height: 3px;
+  }
+  .slider-track-0 {
+    background-color: $primary-red;
+  }
+  .slider-track-1 {
+    background-color: #d6dce7;
+  }
+}
+// .horizontal-slider {
+//   width: 150px;
+//   max-width: 500px;
+//   height: 50px;
+//   .slider-thumb {
+//     outline: none;
+//     min-width: 14px;
+//     text-align: center;
+//     background: #979797;
+//     padding-top: 8px;
+//     color: #3a7eea;
+//     background: unset;
+//     &:focus {
+//       outline: none;
+//     }
+
+//     .slider-thumb-circle {
+//       width: 14px;
+//       height: 14px;
+//       border-radius: 50%;
+//       border: 2px solid #3a7eea;
+//       box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+//       background: #fff;
+//       margin: -14px auto 0 auto;
+//     }
+//   }
+//   .slider-track {
+//     height: 3px;
+//   }
+//   .slider-track-0 {
+//     background-color: #3a7eea;
+//   }
+//   .slider-track-1 {
+//     background-color: #d6dce7;
+//   }
+// }

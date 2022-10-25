@@ -1,0 +1,77 @@
+@import "../../../styles/assets/constant.scss";
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  &.open {
+    .dropdown-overlay {
+      display: block;
+    }
+  }
+  &.disabled {
+    .dropdown-trigger-item {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.dropdown-trigger-item {
+  cursor: pointer;
+}
+
+.dropdown-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: $select-option-z-index;
+  // margin-top: 5px;
+
+  @include wrapShadow;
+  border: 1px solid $border-color-base;
+
+  background-color: #fff;
+  border-radius: 4px;
+
+  &.open {
+    display: block;
+  }
+  &.inline {
+    min-width: 100%;
+    top: 100%;
+    border-top: none;
+    margin-top: 5px;
+  }
+}
+
+.dropdown-trigger-item {
+  padding: 0 10px;
+  padding-right: 40px;
+  background-color: #fff;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid $border-color-base;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  &.mini {
+    height: 26px;
+    line-height: 24px;
+    &:after {
+      top: 10px;
+    }
+  }
+
+  &:after {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 6px solid $text-color;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+  }
+}

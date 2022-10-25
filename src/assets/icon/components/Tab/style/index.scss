@@ -1,0 +1,165 @@
+/**
+ * @atom Tab
+ * @section Tab
+ * @modifiers
+ *  .tab 分页标签
+ *  .tab.active 标签激活态
+ *  .tab-activated 标签激活态，和.tab.active一样
+ *  .btn-tab 按钮型分页标签
+ *  .btn-tab.active 按钮型标签激活态
+ *  .btn-tab-activated 按钮型标签激活态
+ * @markup
+ *  <span class="tab">tab1</span>
+ *  <span class="tab active">tab2</span>
+ *  <span class="btn-tab">tab1</span>
+ *  <span class="btn-tab active">tab2</span>
+ */
+
+$tabPrefix: #{$prefixCls}tab;
+
+.#{$prefixCls}tab {
+  &-wrap {
+    font-size: $tab-font-size;
+    width: 100%;
+  }
+
+  &-header {
+    display: flex;
+    flex: none;
+    justify-content: flex-start;
+    color: $tab-header-color;
+    align-items: stretch;
+    overflow-y: visible;
+    font-size: $tab-header-font-size;
+
+    &-wrapper {
+      position: relative;
+      white-space: nowrap;
+      overflow-x: hidden;
+      display: flex;
+      width: 100%;
+      // hack for overflow
+      padding-bottom: 5px;
+      margin-bottom: -5px;
+      margin-top: -3px;
+      padding-top: 3px;
+    }
+    &-list {
+      position: relative;
+      display: flex;
+      flex: none;
+      transition: all 0.5s;
+    }
+    &-item {
+      position: relative;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: $tab-header-item-padding;
+      font-weight: normal;
+      margin-right: $tab-header-item-margin-right;
+
+      &.active {
+        color: $tab-header-active-color;
+      }
+      &.disabled {
+        cursor: not-allowed;
+        opacity: $tab-header-disable-opacity;
+      }
+    }
+    &-link-bar {
+      position: absolute;
+      width: $tab-header-link-bar-width;
+      height: $tab-header-link-bar-height;
+      left: 0px;
+      bottom: 0px;
+      background-color: $tab-header-link-bar-bg;
+      transition: width $tab-duration, left $tab-duration, right $tab-duration;
+    }
+    &-arrow {
+      cursor: pointer;
+      width: $tab-arrow-wrap-width;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        .icon {
+          fill: $tab-arrow-hover-color;
+        }
+      }
+      .icon {
+        width: $tab-arrow-width;
+        height: $tab-arrow-height;
+        fill: $tab-arrow-color;
+      }
+    }
+  }
+
+  &-panel {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &-card {
+    & > .#{$tabPrefix}-header {
+      .#{$tabPrefix}-header {
+        &-item {
+          border: 1px solid $tab-header-border-color;
+          border-left: none;
+          border-bottom: none;
+          background: $tab-header-item-bg;
+
+          &:first-child {
+            border-left: 1px solid $tab-header-border-color;
+
+            &.showArrow {
+              border-left: none;
+            }
+          }
+          &:last-child {
+            &.showArrow {
+              border-right: none;
+            }
+          }
+
+          &.active {
+            background: $tab-header-item-active-bg;
+
+            &::after {
+              position: absolute;
+              top: -3px;
+              content: '';
+              display: block;
+              width: 100%;
+              height: 3px;
+              background: $tab-header-item-active-bar-bg;
+            }
+            &::before {
+              position: absolute;
+              z-index: 10;
+              bottom: -1px;
+              content: '';
+              display: block;
+              width: 100%;
+              height: 3px;
+              background: $white;
+            }
+          }
+        }
+        &-arrow {
+          background-color: $tab-header-item-bg;
+          border: 1px solid $tab-header-border-color;
+          border-bottom: none;
+        }
+        &-link-bar {
+          display: none;
+        }
+      }
+    }
+  }
+}

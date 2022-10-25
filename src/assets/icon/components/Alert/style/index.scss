@@ -1,0 +1,91 @@
+.#{$prefixCls}base-alert {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: $alert-padding;
+  line-height: $alert-line-height;
+  border-radius: $alert-border-radius;
+  color: $alert-color;
+  font-size: $alert-font-size;
+  word-break: break-all;
+  white-space: pre-wrap;
+
+  // 不同的类型
+  &.base-alert-error {
+    background-color: $alert-error-bg-color;
+    border: $alert-error-border;
+    fill: $alert-error-fill-color;
+  }
+  &.base-alert-success {
+    background-color: $alert-success-bg-color;
+    border: $alert-success-border;
+  }
+  &.base-alert-warning {
+    background-color: $alert-warning-bg-color;
+    border: $alert-warning-border;
+  }
+  &.base-alert-info {
+    background-color: $alert-info-bg-color;
+    border: $alert-info-border;
+  }
+  &.base-alert-loading {
+    background-color: $alert-loading-bg-color;
+    border: $alert-loading-border;
+  }
+
+  &.base-alert-message {
+    background-color: $alert-message-bg-color;
+    border: $alert-message-border;
+  }
+
+  .base-alert-icon {
+    margin-right: $alert-icon-margin-right;
+    width: $alert-icon-width;
+    height: $alert-icon-width;
+  }
+
+  .base-alert-content {
+    flex: 1;
+
+
+    .base-alert-description {
+      // font-weight: bold;
+      color:$shallow-color;
+      }
+    .base-alert-text {
+      font-weight: bold;
+    }
+  }
+
+  .base-alert-icon-close {
+    width: $alert-icon-close-witdh;
+    height: $alert-icon-close-witdh;
+    padding: $alert-icon-close-padding;
+    margin-left: $alert-icon-close-margin-left;
+    border-radius: $alert-icon-close-radius;
+    cursor: pointer;
+    stroke: $alert-icon-close-stroke;
+
+    &:hover {
+      background-color: $alert-icon-close-hover-bg;
+      stroke: $alert-icon-close-hover-stroke;
+    }
+  }
+
+  //mini
+  &.mini {
+    padding: $alert-mini-padding;
+    line-height: $alert-mini-lineheight;
+
+    .base-alert-icon {
+      width: $alert-mini-icon-width;
+      height: $alert-mini-icon-width;
+      margin-right: $alert-mini-margin-right;
+    }
+  }
+
+  &.no-border {
+    border: 0;
+    padding: $alert-no-border-padding;
+  }
+}

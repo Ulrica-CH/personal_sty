@@ -1,0 +1,50 @@
+.#{$prefixCls}status {
+  line-height: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .label {
+    font-size: 12px;
+    // line-height: 14px;
+    color: #3c4044;
+    padding-left: 5px;
+  }
+  .point {
+    background: gray;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  &.column {
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    .text {
+      padding-top: 5px;
+      padding-left: 0;
+    }
+  }
+  .icon{
+    flex-shrink: 0;
+  }
+  &.event {
+    .icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+  &.host {
+    .icon {
+      width: 17px;
+      height: 20px;
+    }
+  }
+  &.threat {
+    .icon {
+      width: 23px;
+      height: 17px;
+    }
+  }
+}

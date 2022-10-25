@@ -1,0 +1,30 @@
+.#{$prefixCls}icon {
+  width: $icon-size-base;
+  height: $icon-size-base;
+  vertical-align: top;
+
+  &.mini {
+    width: $icon-size-sm;
+    height: $icon-size-sm;
+  }
+  &.large {
+    width: $icon-size-lg;
+    height: $icon-size-lg;
+  }
+}
+
+.icon-fill-default {
+  fill: $icon-color;
+
+  &:hover {
+    fill: $icon-hover-color;
+  }
+}
+
+.icon-stroke-default {
+  stroke: $icon-color;
+
+  &:hover {
+    stroke: $icon-hover-color;
+  }
+}

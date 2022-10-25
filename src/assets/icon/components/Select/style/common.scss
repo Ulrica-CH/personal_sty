@@ -1,0 +1,21 @@
+
+@import "../../Form/style/common.scss";
+@import "../../../styles/assets/mixin.scss";
+
+@mixin miniStyle() {
+  height: $select-height-sm;
+  font-size: $font-size-sm;
+}
+
+@mixin selectFocus() {
+  background-color: $select-focus-background;
+  &.disabled {
+    @include disabledStyle();
+    background-color: transparent;
+  }
+}
+
+@mixin selectOptionWrapShow() {
+  display: block;
+}
+

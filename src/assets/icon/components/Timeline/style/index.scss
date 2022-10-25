@@ -1,0 +1,61 @@
+.timeline {
+  padding: 0;
+  list-style: none;
+
+  &.has-desc {
+    padding-left: 110px;
+  }
+  &-item {
+    position: relative;
+    padding: 0 0 50px;
+    padding-left: 88px;
+    margin: 0;
+
+    // &.last {
+    //   .timeline-item-tail {
+    //     display: none;
+    //   }
+    // }
+
+    &-dot {
+      line-height: 1;
+      padding: 2px 4px;
+      position: absolute;
+      left: 30px;
+      top: 0;
+      min-width: 28px;
+      height: 16px;
+      background-color: $text-color;
+      border-radius: 57px;
+      color: #fff;
+      font-size: 12px;
+      text-align: center;
+
+      &-desc {
+        position: absolute;
+        left: -130px;
+        width: 130px;
+        font-size: 12px;
+        color: $text-color;
+        text-align: right;
+      }
+    }
+    &-end {
+      line-height: 1;
+      position: absolute;
+      left: 41px;
+      top: 0;
+      height: 7px;
+      width: 7px;
+      border-radius: 50%;
+      border: 1px solid #999;
+    }
+    &-tail {
+      position: absolute;
+      left: 44px;
+      top: 0;
+      height: 100%;
+      border-left: 1px solid #999;
+    }
+  }
+}

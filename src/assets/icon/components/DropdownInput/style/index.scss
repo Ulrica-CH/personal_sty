@@ -1,0 +1,27 @@
+@import '../../Input/style/index.scss';
+
+.#{$prefixCls}dropdown-input {
+  &-trigger {
+    display: flex;
+    border-radius: $input-radius;
+    @extend .#{$prefixCls}input;
+    
+  }
+
+  &-label {
+    margin-right: 5px;
+  }
+
+  &-value {
+    color: $primary-red;
+  }
+
+  &-content {
+    padding: 10px;
+  }
+  &-button-wrap {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

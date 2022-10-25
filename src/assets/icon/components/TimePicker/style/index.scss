@@ -1,0 +1,140 @@
+@import '../../Form/style/common.scss';
+@import '../../Button/style/index.scss';
+
+.ant-picker {
+  border-color: $input-border-color;
+  border-radius: $input-radius;
+  height: $input-height-base;
+  line-height: $input-height-base - 2px;
+
+  // padding-left: $input-padding;
+  // padding-right: $input-padding;
+
+  &:hover {
+    @include hoverStyle();
+  }
+  &.ant-picker-focused {
+    @include focusStyle();
+  }
+  &.ant-picker-disabled {
+    @include disabledStyle();
+  }
+  &.background {
+    background-color: $input-background-gray;
+  }
+  .ant-picker-range-separator {
+    padding: 0 $input-padding;
+  }
+  .ant-picker-active-bar {
+    background-color: $input-focus-color;
+  }
+
+  .ant-picker-input > input {
+    font-size: $input-font-size-base;
+    color: $text-color;
+  }
+
+  &.mini {
+    height: $input-height-sm;
+    line-height: $input-height-sm - 2px;
+
+    .ant-picker-input > input {
+      font-size: $input-font-size-sm;
+    }
+  }
+}
+
+// 日历主题重置
+// 日历起始点：深红
+.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
+  background: $primary-red;
+}
+// 今天的选中border
+.ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+  border: $primary-red;
+}
+
+// 日期片选：浅红
+.ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-range-start-single)::before,
+.ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-range-end-single)::before,
+.ant-picker-cell-in-view.ant-picker-cell-in-range::before {
+  background: $label-weak-error-bg-color;
+}
+// 日期片选：浅红浮动效果
+.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover::before,
+.ant-picker-cell-in-view.ant-picker-cell-range-start.ant-picker-cell-range-hover::before,
+.ant-picker-cell-in-view.ant-picker-cell-range-end.ant-picker-cell-range-hover::before,
+.ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-range-start-single).ant-picker-cell-range-hover-start::before,
+.ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-range-end-single).ant-picker-cell-range-hover-end::before,
+.ant-picker-panel
+  > :not(.ant-picker-date-panel)
+  .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start::before,
+.ant-picker-panel
+  > :not(.ant-picker-date-panel)
+  .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end::before {
+  background: $time-picker-checked-hover-color;
+}
+.ant-picker-date-panel
+  .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start
+  .ant-picker-cell-inner::after,
+.ant-picker-date-panel
+  .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end
+  .ant-picker-cell-inner::after {
+  background: $time-picker-checked-hover-color;
+}
+
+// time底下的选中色
+.ant-picker-time-panel-column
+  > li.ant-picker-time-panel-cell-selected
+  .ant-picker-time-panel-cell-inner {
+  background: $label-weak-error-bg-color;
+}
+// 日期片选：浅红浮动效果
+.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover::before, 
+.ant-picker-cell-in-view.ant-picker-cell-range-start.ant-picker-cell-range-hover::before, 
+.ant-picker-cell-in-view.ant-picker-cell-range-end.ant-picker-cell-range-hover::before, 
+.ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-range-start-single).ant-picker-cell-range-hover-start::before, 
+.ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-range-end-single).ant-picker-cell-range-hover-end::before, 
+.ant-picker-panel > :not(.ant-picker-date-panel) .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start::before, 
+.ant-picker-panel > :not(.ant-picker-date-panel) .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end::before{
+  background: $time-picker-checked-hover-color;
+}
+.ant-picker-date-panel .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start .ant-picker-cell-inner::after,
+.ant-picker-date-panel .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end .ant-picker-cell-inner::after{
+  background: $time-picker-checked-hover-color;
+}
+
+// time底下的选中色
+.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-selected .ant-picker-time-panel-cell-inner{
+  background: $label-weak-error-bg-color;
+}
+
+// 范围选择标签的样式：最近30天,覆盖的只能覆盖primary-color
+.ant-picker-ranges .ant-picker-preset > .ant-tag-blue {
+  color: $primary-red;
+  background: $label-weak-error-bg-color;
+  border-color: $primary-red;
+}
+
+// 像此刻，今天这样的文字重置
+.ant-picker-now-btn,
+.ant-picker-today-btn {
+  color: $text-color-red;
+  &:hover {
+    color: $text-color-red;
+  }
+}
+// primary的按钮
+.ant-btn-primary {
+  border-color: $primary-red;
+  @include btn-base($white, $primary-red, $white, $shallow-red, $white);
+  &:hover {
+    border-color: $primary-red;
+  }
+}
+// 年月选择的button重置
+.ant-picker-header-view button:hover {
+  color: $primary-red;
+}

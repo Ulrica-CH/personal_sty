@@ -1,0 +1,194 @@
+@import '../../Input/style/index.scss';
+@import '../../Form/style/common.scss';
+@import '../../../styles/assets/mixin.scss';
+$padding-x: 12px;
+.#{$prefixCls}input-match-wrapper {
+  white-space: nowrap;
+  align-items: center;
+  width: 100%;
+  font-size: $font-size-sm;
+  display: inline-flex;
+  cursor: pointer;
+  color: $dark-color;
+  .open {
+    & > .dropdown-value {
+      @include focusStyle();
+      .drop-down-icon {
+        stroke: $select-active-color;
+      }
+    }
+  }
+  .input-box {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+  }
+  .dropdown {
+    max-width: 100%;
+    flex-grow: 1;
+    width: unset;
+  }
+  .delete-icon {
+    fill: $icon-color;
+    width: $icon-size-sm;
+    height: $icon-size-sm;
+    margin-left: 5px;
+    flex-shrink: 0;
+    &:hover {
+      fill: $icon-hover-color;
+    }
+  }
+  .dropdown-value {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    background: $select-background;
+    border: 1px solid $input-border-color;
+    border-radius: $select-radius;
+    height: $select-height;
+    color: $select-color;
+    &:hover {
+      border-color: $select-hover-border-color;
+      .drop-down-icon {
+        stroke: $icon-hover-color;
+      }
+    }
+    .input-title {
+      margin-left: 5px;
+    }
+    .input-val {
+      color: $text-color;
+      font-size: $font-size-sm;
+      width: 100%;
+      padding: 3px 5px;
+      border-radius: 2px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      .select-show-wrap {
+        display: flex;
+        flex-wrap: nowrap;
+        .select-show-val {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-right: 4px;
+        }
+      }
+    }
+    .drop-down-icon {
+      flex-shrink: 0;
+      fill: none;
+      stroke: $icon-color;
+      width: 10px;
+      margin-right: 5px;
+      transition: transform 0.2s ease-in-out;
+    }
+    span {
+      max-width: 5em;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+  }
+}
+.#{$prefixCls}input-match-overlay {
+  padding: $padding-x 0;
+  font-size: $font-size-sm;
+  border-radius: 4px;
+  .select-box {
+    overflow-y: auto;
+    max-height: 12em;
+    width: 100%;
+    overflow-x: hidden;
+    border-bottom: 1px solid $border-color-base;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    @include scrollbar(#fff,$shallow-color);
+    .checkbox-label {
+      line-height: 24px;
+      display: flex;
+      padding: 0 $padding-x;
+      font-size: $font-size-sm;
+      &:hover {
+        background: $shallow-gray;
+      }
+      & + .checkbox-label {
+        margin-top: 5px;
+      }
+    }
+  }
+  .btn.btn-link {
+    color: $text-color-blue;
+    &:hover {
+      color: #5E9BF8;
+      text-decoration: none;
+    }
+  }
+  .input-head {
+    padding: 0 $padding-x;
+    .tab-title {
+      margin-top: -5px;
+      display: flex;
+      justify-content: center;
+      .active {
+        font-weight: bold;
+      }
+    }
+
+    .search-input {
+      display: flex;
+    }
+  }
+  .input-head-border {
+    border-bottom: 1px solid $border-color-base;
+  }
+  .radio-group-box {
+    padding: 14px $padding-x;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+    .radio-group {
+      display: flex;
+      justify-content: space-between;
+      .radio-label {
+        padding: 0 15px;
+      }
+    }
+  }
+  .input-box {
+    padding: 0 $padding-x;
+    .textarea {
+      padding: 4px;
+      font-size: $font-size-sm;
+      height: 90px;
+    }
+  }
+
+  .radio-label {
+    display: inline-flex;
+    align-items: center;
+  }
+  .oper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $padding-x;
+    padding-top: 12px;
+    .btn-link {
+      font-size: $font-size-sm;
+      padding: 0;
+    }
+    .btn {
+      font-size: $font-size-sm;
+    }
+    &>div:first-child {
+      margin-right: 25px;
+      .btn:first-child {
+        padding: 0 10px;
+      }
+    }
+  }
+}
+.input-Match-hint {
+  color: $shallow-color;
+}

@@ -1,0 +1,132 @@
+@mixin mes-style($color) {
+  .notice-icon {
+    fill: $color;
+  }
+}
+
+.#{$prefixCls}notice-group {
+  position: absolute;
+  right: $notice-group-right;
+  top: $notice-group-top;
+  z-index: $notice-group-z-index;
+}
+
+.#{$prefixCls}message-group {
+  position: absolute;
+  left: $message-group-left;
+  top: $message-group-top;
+  transform: $message-group-transform;
+  z-index: $message-group-z-index;
+  text-align: center;
+
+  .loading-circle {
+    vertical-align: top;
+  }
+}
+
+.#{$prefixCls}notice {
+  width: $notice-base-width;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: $notice-base-margin-bottom;
+  padding: $notice-base-padding;
+  padding-right: 35px;
+  line-height: $notice-base-line-height;
+  word-break: break-all;
+  border: 1px solid $notice-border-color;
+  box-shadow: $notice-base-box-shadow;
+  background-color: $notice-base-bg-color;
+  color: $notice-base-color;
+  font-size: $notice-base-font-size;
+  border-radius: $notice-base-border-radius;
+
+  &:hover {
+    .notice-icon-close-wrap {
+      .notice-icon-close {
+        display: block;
+      }
+    }
+  }
+
+  &.success {
+    @include mes-style($notice-success-color);
+  }
+
+  &.error {
+    @include mes-style($notice-error-color);
+  }
+
+  &.warning {
+    @include mes-style($notice-warning);
+  }
+
+  .#{$prefixCls}loading-wrapper {
+    width: auto;
+    margin: $notice-loading-wrapper-margin;
+  }
+
+  .#{$prefixCls}loading-circle {
+    margin-right: $notice-loading-circle-margin-right;
+    font-size: $notice-loading-circle-font-size;
+  }
+
+  .notice-content {
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
+  }
+
+  .notice-icon-close-wrap {
+    position: relative;
+    width: 0px;
+    .notice-icon-close {
+      display: none;
+      position: absolute;
+      right: -25px;
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+      cursor: pointer;
+      border-radius: 2px;
+      .icon {
+        width: 10px;
+        stroke: #656572;
+        height: 10px;
+      }
+      &:hover {
+        background-color: #ECEEF2;
+      }
+    }
+  }
+
+  .notice-icon {
+    flex: 0 0 $notice-icon-size;
+    height: $notice-icon-size;
+    vertical-align: top;
+    margin: $notice-icon-margin;
+  }
+}
+
+.#{$prefixCls}item-enter {
+  opacity: $notice-item-enter-opacity;
+  max-height: $notice-item-enter-max-height;
+  height: $notice-item-enter-height;
+  transform: $notice-item-enter-transform;
+}
+.#{$prefixCls}item-enter-active {
+  opacity: $notice-item-enter-active-opacity;
+  max-height: $notice-item-enter-active-max-height;
+  height: $notice-item-enter-active-height;
+  transform: $notice-item-enter-active-transform;
+  transition: $notice-item-enter-active-transition;
+}
+.#{$prefixCls}item-exit {
+  opacity: $notice-item-enter-active-opacity;
+  transform: $notice-item-enter-active-transform;
+}
+.#{$prefixCls}item-exit-active {
+  opacity: $notice-item-enter-opacity;
+  transform: $notice-item-exit-active-transform;
+  transition: $notice-item-exit-active-transition;
+}

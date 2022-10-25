@@ -1,0 +1,20 @@
+.#{$prefixCls}no-result {
+  font-size: $noresult-font-size;
+  margin: 20px auto;
+  text-align: center;
+  color: $noresult-color;
+  font-weight: normal;
+  line-height: 16px;
+
+  &.mini {
+    .no-result-icon {
+      width: 26px;
+      height: 26px;
+    }
+  }
+  .no-result-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 10px;
+  }
+}

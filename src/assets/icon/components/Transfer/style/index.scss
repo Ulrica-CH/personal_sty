@@ -1,0 +1,90 @@
+@import '../../../styles/assets/constant.scss';
+@import '../../../styles/assets/mixin.scss';
+.transfer {
+  width: 100%;
+  display: flex;
+  color: $text-color;
+}
+
+.transfer-list-wrap {
+  flex: 1;
+  border: 1px solid $border-color-base;
+  overflow: hidden;
+}
+.transfer-controll-center {
+  flex: 0 0 80px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .btn {
+    padding: 0;
+    text-align: center;
+    font-size: 12px;
+    font-weight: normal;
+    &:first-child {
+      margin-bottom: 10px;
+    }
+    &:last-child {
+      border: 1px solid $border-color-base;
+      background-color: #fff;
+    }
+  }
+  .icon-arrow {
+    transform: rotate(45deg);
+    border-color: #fff;
+    width: 7px;
+    height: 7px;
+    margin: 0;
+    margin-top: 3px;
+    margin-left: 0;
+
+    &.left {
+      transform: rotate(-135deg);
+      margin-left: 4px;
+      border-color: #666;
+    }
+  }
+}
+
+.transfer-list-title {
+  height: 32px;
+  padding: 10px;
+  line-height: 1;
+  border-bottom: 1px solid $border-color-base;
+  font-weight: bold;
+  font-size: 12px;
+
+  .checkbox {
+    margin-right: 10px;
+  }
+  .checkbox-label {
+    // margin-top: -1px;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+.transfer-search-wrap {
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.transfer-items-wrap {
+  margin-bottom: 0;
+  padding: 10px;
+
+  .box-content {
+    overflow-y: scroll;
+    height: 120px;
+
+    @include scrollbar();
+  }
+  .checkbox-label {
+    display: block;
+    margin-bottom: 10px;
+    line-height: 1;
+  }
+}

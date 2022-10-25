@@ -1,0 +1,161 @@
+$prefix: #{$prefixCls}btn;
+
+@mixin btn-base(
+  $color,
+  $bg-color,
+  $hover-color: $color,
+  $hover-bg-color: $bg-color,
+  $icon-color: $color,
+  $hover-icon-color: $icon-color
+) {
+  background-color: $bg-color;
+  color: $color;
+
+  .#{$prefixCls}icon {
+    fill: $icon-color;
+  }
+
+  &:not(:disabled):hover,
+  &.active {
+    background-color: $hover-bg-color;
+    color: $hover-color;
+
+    .#{$prefixCls}icon {
+      fill: $hover-icon-color;
+    }
+  }
+}
+
+.#{$prefix} {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: $btn-padding;
+  font-size: $btn-font-size;
+  font-weight: normal;
+  height: $btn-height;
+  border: none;
+  line-height: 1;
+  white-space: nowrap;
+  @include btn-base($btn-primary-color, $btn-primary-bg, $btn-primary-active-color, $btn-primary-active-bg);
+  & &-loading {
+    margin: 0;
+    margin-right: 5px;
+    width: auto;
+    padding: 0;
+  }
+
+  &-loading-no-text {
+    margin-right: 0;
+  }
+
+
+  &.loading {
+    color: $white;
+    background: $btn-loading-bg;
+    opacity: 1;
+    cursor: not-allowed;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: 0;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+  }
+  &.radius {
+    border-radius: $btn-radius;
+  }
+  &.mini {
+    padding: $btn-padding-mini;
+    font-weight: normal;
+    font-size: $font-size-sm;
+    height: $btn-height-mini;
+  }
+
+
+
+  .#{$prefixCls}icon:not(:only-child) {
+    margin-right: 5px;
+  }
+
+  // ----- 老的按钮 -------
+  &.#{$prefix}-secondary {
+    @include btn-base(#345ea1, #e5efff, #345ea1, #d5e3f9);
+  }
+  &.#{$prefix}-return {
+    @include btn-base(#fff, #3a7eea, #fff, #345ea1);
+  }
+  &.#{$prefix}-reset {
+    @include btn-base(#3a7eea, #e5efff, #3a7eea, #d5e3f9);
+  }
+  &.#{$prefix}-link {
+    @include btn-base(#333, transparent, #3a7eea);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &.#{$prefix}-dark {
+    @include btn-base($white, $dark-color, $white, $base-color);
+  }
+  &.#{$prefix}-dark {
+    @include btn-base($btn-dark-color, $btn-dark-bg, $btn-dark-active-color, $btn-dark-active-bg);
+  }
+  &.#{$prefix}-safe {
+    @include btn-base($white, #038962);
+  }
+
+  // ----- 新按钮 -------
+  &.#{$prefix}-danger {
+    @include btn-base($white, #f44345, $white, #e31919, $white);
+  }
+  &.#{$prefix}-blue {
+    @include btn-base($white, $text-color-blue, $white, $shallow-blue, $white);
+  }
+  &.#{$prefix}-primary {
+    @include btn-base(
+      $btn-primary-color,
+      $btn-primary-bg,
+      $btn-primary-active-color,
+      $btn-primary-active-bg,
+      $btn-primary-icon-color
+    );
+  }
+  &.#{$prefix}-gray {
+    @include btn-base(
+      $btn-gray-color,
+      $btn-gray-bg,
+      $btn-gray-active-color,
+      $btn-gray-active-bg,
+      $btn-gray-icon-color,
+      $btn-gray-icon-hover-color
+    );
+  }
+  &.#{$prefix}-white {
+    @include btn-base(
+      $btn-white-color,
+      $btn-white-bg,
+      $btn-white-active-color,
+      $btn-white-active-bg,
+      $btn-white-icon-color,
+      $btn-white-icon-hover-color
+    );
+    border: 1px solid $btn-white-border;
+    &:hover {
+      border-color: $btn-white-active-border;
+    }
+  }
+  &.#{$prefix}-text {
+    @include btn-base($btn-text-color, $btn-text-bg, $btn-text-color, $btn-text-active-bg, $btn-text-icon-color);
+  }
+  &.#{$prefix}-text-blue {
+    @include btn-base($text-color-blue, $btn-text-bg, $text-color-blue, $btn-text-active-bg, $btn-text-icon-color);
+  }
+  &.#{$prefix}-text-red {
+    @include btn-base($primary-red, $btn-text-bg, $primary-red, $btn-text-active-bg, $btn-text-icon-color);
+  }
+}

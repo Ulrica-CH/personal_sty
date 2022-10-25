@@ -1,0 +1,75 @@
+@import "../../../styles/assets/constant.scss";
+@import "../../Form/style/common.scss";
+// 框体选中和浮动的效果
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector{
+  @include focusStyle();
+}
+
+.ant-select:not(.ant-select-customize-input).ant-select:not(.ant-select-disabled) .ant-select-selector:hover{
+  @include focusStyle();
+}
+// 选中样式重置
+.ant-select-tree-checkbox-checked .ant-select-tree-checkbox-inner{
+  background-color: $checkbox-color-checked;
+  border-color: $checkbox-color-checked;
+}
+.ant-select-tree-checkbox-indeterminate .ant-select-tree-checkbox-inner::after{
+  background-color: $checkbox-color-checked
+}
+
+// 复选框hover重置
+.ant-select-tree-checkbox:hover,
+.ant-select-tree-checkbox-checked:hover{
+  .ant-select-tree-checkbox-inner{
+    border-color: $checkbox-color-hover-color ;
+  }
+}
+.ant-select-show-search.ant-select:not(.ant-select-customize-input) {
+  .ant-select-selector:hover{
+    border-color: $select-hover-border-color ;
+  }
+}
+.ant-select-tree-checkbox-checked::after{
+  border-color: $select-hover-border-color ;
+}
+// 禁用
+.ant-select-disabled.ant-select:not(.ant-select-customize-input) .ant-select-selector{
+  @include disabledStyle();
+}
+.ant-select-disabled.ant-select:not(.ant-select-customize-input) .ant-select-selector:hover{
+  @include disabledStyle();
+}
+
+// 单选的选中和hover
+.ant-select-tree .ant-select-tree-node-content-wrapper.ant-select-tree-node-selected {
+  background-color: $select-focus-background;
+}
+
+.ant-select-tree .ant-select-tree-node-content-wrapper:hover{
+  background-color: $select-focus-background;
+}
+
+// 下拉箭头的样式
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input),
+.ant-select:not(.ant-select-customize-input).ant-select:not(.ant-select-disabled):hover{
+  .ant-select-arrow .anticon > svg{
+    fill: $select-drop-down-open;
+  }
+}
+
+.drop-down-icon {
+  fill: none;
+  stroke: $icon-color;
+  width: 10px;
+}
+.ant-select-tree-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ant-select-tree-switcher_close {
+  .drop-down-icon {
+    transform: rotate(-90deg);
+  }
+}

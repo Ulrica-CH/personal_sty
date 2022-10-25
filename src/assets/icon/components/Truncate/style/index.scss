@@ -1,0 +1,26 @@
+@import '../../../styles/assets/constant.scss';
+
+.wrapper {
+  display: grid;
+  .text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    // text-overflow: ellipsis;
+    line-height: 1.5em;
+    .moreBtn {
+      height: 1.5em;
+      color: $text-color-blue;
+      cursor: pointer;
+      float: right;
+      clear: both;
+      margin-left: 5px;
+    }
+  }
+  .text::before {
+    content: '';
+    float: right;
+    height: calc(100% - 1.5em);
+  }
+}

@@ -1,0 +1,19 @@
+@import '../../../styles/assets/index.scss';
+
+.#{$prefixCls}copy-click-zone {
+  align-items: center;
+  cursor: pointer;
+
+  @include user-select-none;
+  .icon-copy {
+    fill: $icon-color;
+  }
+  &:hover {
+    .icon-copy {
+      fill: $copy-icon-hover-fill;
+    }
+    .icon-copy-white {
+      fill: $copy-icon-hover--white-fill;
+    }
+  }
+}

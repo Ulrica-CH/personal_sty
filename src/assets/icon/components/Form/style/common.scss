@@ -1,0 +1,18 @@
+@mixin focusStyle() {
+  border-color: $input-focus-color;
+  box-shadow: 0 0 0 $input-sharow-width $input-focus-shadow-color;
+}
+@mixin hoverStyle() {
+  border-color: $input-focus-color;
+}
+@mixin errorStyle() {
+  border-color: $input-error-color;
+  box-shadow: 0 0 0 $input-sharow-width $input-error-shadow-color;
+}
+@mixin disabledStyle() {
+  border-color: $input-border-color;
+  color: $text-color-disabled;
+  background-color: $disabled-color;
+  opacity: 0.6;
+  cursor: not-allowed;
+}

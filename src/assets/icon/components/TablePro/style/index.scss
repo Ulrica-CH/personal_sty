@@ -1,0 +1,374 @@
+@import "../../../styles/assets/mixin.scss";
+$table-prefix: "#{$prefixCls}tablePro";
+
+$row-hover-bg: #f8f9fa;
+$shadow: $table-border-color;
+$vertical-padding: 6px;
+$horizontal-padding: 15px;
+$border-width: 1px;
+$table-border: $border-width solid $table-border-color;
+$cell-padding: $vertical-padding $horizontal-padding;
+$table-header-padding: 0 $horizontal-padding;
+$ex-cell-margin: -6px -15px;
+
+@mixin tableBorder() {
+  border: $table-border;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.#{$table-prefix} {
+  position: relative;
+  box-sizing: border-box;
+  color: $table-color;
+  font-size: $table-font-size;
+  line-height: $table-line-height;
+  div {
+    @include scrollbar();
+  }
+  &-rtl {
+    direction: rtl;
+  }
+
+  // ================= Global =================
+  table {
+    width: 100%;
+    border-spacing: 0px;
+  }
+  td {
+    min-height: $table-row-min-height;
+  }
+  th,
+  td {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    padding: $table-header-padding;
+    white-space: normal;
+    word-break: break-word;
+    border: $table-border;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    transition: box-shadow 0.3s;
+    height: $table-header-height;
+
+    .#{$table-prefix}-rtl & {
+      border-right: 0;
+      border-left: $table-border;
+    }
+  }
+
+  // ================== Cell ==================
+  &-cell {
+    &-fix-left,
+    &-fix-right {
+      z-index: 1;
+    }
+
+    &-fix-right:last-child:not(&-fix-sticky) {
+      border-right-color: transparent;
+    }
+
+    .#{$table-prefix}-rtl & {
+      &-fix-right:last-child {
+        border-right: $table-border;
+      }
+
+      &-fix-left:last-child {
+        border-left-color: transparent;
+      }
+    }
+
+    &-fix-left-first {
+      .#{$table-prefix}-rtl & {
+        box-shadow: 1px 0 0 $shadow;
+      }
+    }
+
+    &-fix-left-first::after,
+    &-fix-left-last::after {
+      position: absolute;
+      top: 0;
+      right: -1px;
+      bottom: -1px;
+      width: 20px;
+      transform: translateX(100%);
+      transition: box-shadow 0.3s;
+      content: "";
+      pointer-events: none;
+    }
+
+    &-fix-right-first,
+    &-fix-right-last {
+      box-shadow: -1px 0 0 $shadow;
+
+      .#{$table-prefix}-rtl & {
+        box-shadow: none;
+      }
+
+      &::after {
+        position: absolute;
+        top: 0;
+        bottom: -1px;
+        left: -1px;
+        width: 20px;
+        transform: translateX(-100%);
+        transition: box-shadow 0.3s;
+        content: "";
+        pointer-events: none;
+      }
+    }
+
+    &#{&}-ellipsis {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      // Fixed first or last should special process
+      &.#{$table-prefix}-cell-fix-left-first,
+      &.#{$table-prefix}-cell-fix-left-last,
+      &.#{$table-prefix}-cell-fix-right-first &.#{$table-prefix}-cell-fix-right-last {
+        overflow: visible;
+
+        .#{$table-prefix}-cell-content {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    &#{&}-row-hover {
+      background: $row-hover-bg;
+    }
+  }
+
+  &-ping-left {
+    .#{$table-prefix}-cell-fix-left-first::after,
+    .#{$table-prefix}-cell-fix-left-last::after {
+      box-shadow: inset 10px 0 8px -8px $shadow;
+    }
+  }
+
+  &-ping-right {
+    .#{$table-prefix}-cell-fix-right-first::after,
+    .#{$table-prefix}-cell-fix-right-last::after {
+      box-shadow: inset -10px 0 8px -8px $shadow;
+    }
+  }
+
+  // ================= Expand =================
+  &-expand-icon-col {
+    width: 60px;
+  }
+
+  &-row-expand-icon-cell {
+    text-align: center;
+  }
+
+  // ================= Header =================
+  thead {
+    tr {
+      th {
+        border-bottom: 0;
+        &[rowspan] {
+          border-bottom: $table-border;
+          // border-color:$table-border-color;
+        }
+      }
+      &:last-child {
+        th {
+          border-bottom: $table-border;
+          // border-color:$table-border-color;
+        }
+      }
+    }
+
+    td,
+    th {
+      text-align: left;
+      font-weight: $table-header-weight;
+      border-right: $table-border;
+      background: $table-header-bg;
+    }
+
+    .#{$table-prefix}-cell-scrollbar::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -1px;
+      width: 1px;
+      background: $table-header-bg;
+      content: "";
+
+      .#{$table-prefix}-rtl & {
+        right: -1px;
+        left: auto;
+      }
+    }
+  }
+
+  &-header {
+    @include tableBorder();
+  }
+
+  // ================= Empty ==================
+  &-placeholder {
+    text-align: center;
+  }
+
+  // ================== Body ==================
+  tbody {
+    tr {
+      border-right: $table-border;
+      td,
+      th {
+        background: #fff;
+      }
+    }
+  }
+
+  &-content {
+    @include tableBorder();
+    border-radius: 0 0 0 0;
+  }
+
+  &-body {
+    @include tableBorder();
+    border-top: 0;
+  }
+
+  &-fixed-column &-body::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-right: $table-border;
+    content: "";
+  }
+
+  // ================= Expand =================
+  &-expanded-row {
+    .#{$table-prefix}-cell {
+      box-shadow: inset 0 8px 8px -8px $shadow;
+    }
+
+    &-fixed {
+      box-sizing: border-box;
+      margin: $ex-cell-margin;
+      margin-right: -$horizontal-padding - 2 * $border-width;
+      padding: $cell-padding;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 1px;
+        bottom: 0;
+        width: 0;
+        border-right: $table-border;
+        content: "";
+      }
+    }
+  }
+
+  &-row-expand-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    color: #aaa;
+    line-height: 16px;
+    text-align: center;
+    vertical-align: middle;
+    // border: 1px solid currentColor;
+    cursor: pointer;
+
+    &.#{$table-prefix}-row-expanded::after {
+      content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOSA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOC41IDAuNUw0LjUgNS41TDAuNSAwLjUiIGZpbGw9IiM2NTY1NzIiIC8+Cjwvc3ZnPgogIA==");
+    }
+
+    &.#{$table-prefix}-row-collapsed::after {
+      content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNSIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgNSA4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMCAwTDUgNEwwIDgiIGZpbGw9IiM2NTY1NzIiIC8+Cjwvc3ZnPgogIA==");
+    }
+
+    &.#{$table-prefix}-row-spaced {
+      visibility: hidden;
+    }
+  }
+
+  // ================= Title ==================
+  &-title {
+    padding: $cell-padding;
+    border: $table-border;
+    border-bottom: 0;
+  }
+
+  // ================= Footer =================
+  &-footer {
+    padding: $cell-padding;
+    border: $table-border;
+    border-top: 0;
+  }
+
+  tfoot {
+    td {
+      background: #fff;
+    }
+  }
+
+  &-summary {
+    border-top: $table-border;
+    border-left: $table-border;
+  }
+
+  &-sticky {
+    &-holder {
+      position: sticky;
+      z-index: 2;
+    }
+
+    &-scroll {
+      position: sticky;
+      bottom: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid #f3f3f3;
+      opacity: 0.6;
+      transition: transform 0.1s ease-in 0s;
+
+      &:hover {
+        transform: scaleY(1.2);
+        transform-origin: center bottom;
+      }
+
+      &-bar {
+        height: 8px;
+        background-color: #bbb;
+        border-radius: 4px;
+
+        &:hover {
+          background-color: #999;
+        }
+
+        &-active {
+          background-color: #999;
+        }
+      }
+    }
+  }
+  // 去除thead分割线
+  &.deleteTheadSplitLine {
+    thead {
+      tr {
+        th {
+          border-right: 0;
+          &:last-child {
+            border-right: $table-border;
+          }
+        }
+      }
+    }
+  }
+}

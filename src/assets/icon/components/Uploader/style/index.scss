@@ -1,0 +1,66 @@
+.uploader {
+  color: $uploader-color;
+
+  .file {
+    display: flex;
+    align-items: center;
+
+    &-hide {
+      display: none;
+    }
+    &-name {
+      flex: 1;
+      margin-right: $uploader-name-margin;
+      border-radius: $uploader-name-radius;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  .upload-btn {
+    margin: 0 auto;
+    display: flex;
+    .upload-icon {
+      margin-right: $upload-icon-margin-right;
+    }
+  }
+
+  // type = button
+  .button-wrap {
+    width: 100%;
+    .file-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: $uploader-name-padding;
+      border-radius: $uploader-name-radius;
+      margin-top: $uploader-name-margin;
+      font-size: $uploader-font-size;
+      .file-name {
+        display: flex;
+        align-items: center;
+        background: none;
+
+        .success {
+          color: $uploader-success-color;
+        }
+        .error {
+          color: $uploader-error-color;
+        }
+        .status {
+          margin-left: $uploader-status-margin;
+        }
+      }
+      .delete-btn {
+        fill: $uploader-del-btn;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &:hover {
+        background: $uploader-name-color;
+      }
+    }
+  }
+}

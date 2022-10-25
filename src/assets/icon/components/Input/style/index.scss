@@ -1,0 +1,218 @@
+@import '../../Form/style/common.scss';
+
+.#{$prefixCls}input {
+  width: 100%;
+  font-size: $input-font-size-base;
+  color: $input-color;
+  border: 1px solid $input-border-color;
+  height: $input-height-base;
+  line-height: $input-height-base - 2px;
+  background-color: $input-background-base;
+  padding: 0 $input-padding;
+  outline: none;
+  vertical-align: top;
+
+  &-inner,
+  &-inner:focus {
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    height: 100%;
+    vertical-align: top;
+
+    &::-webkit-input-placeholder {
+      color: $input-placeholder-color;
+    }
+    &:-ms-input-placeholder {
+      color: $input-placeholder-color;
+    }
+    &::-moz-placeholder {
+      color: $input-placeholder-color;
+      opacity: 1;
+    }
+    &:-moz-placeholder {
+      color: $input-placeholder-color;
+      opacity: 1;
+    }
+  }
+
+  &.background {
+    background-color: $input-background-gray;
+  }
+
+  &.radius {
+    border-radius: $input-radius;
+  }
+
+  &:hover {
+    @include hoverStyle();
+  }
+
+  &:focus,
+  &.focus {
+    @include focusStyle();
+  }
+
+  &::-webkit-input-placeholder {
+    color: $input-placeholder-color;
+  }
+  &:-ms-input-placeholder {
+    color: $input-placeholder-color;
+  }
+  &::-moz-placeholder {
+    color: $input-placeholder-color;
+    opacity: 1;
+  }
+  &:-moz-placeholder {
+    color: $input-placeholder-color;
+    opacity: 1;
+  }
+
+  &.mini {
+    height: $input-height-sm;
+    line-height: $input-height-sm - 2px;
+    font-size: $input-font-size-sm;
+    padding: 0 $input-padding-sm;
+  }
+
+  &.#{$prefixCls}textarea {
+    padding-top: $input-padding;
+    min-height: 60px;
+    overflow: auto;
+    color: $text-color;
+    line-height: $input-textarea-line-height;
+
+    &.error {
+      @include errorStyle();
+    }
+
+    &.mini {
+      font-size: $input-font-size-sm;
+      line-height: $input-textarea-line-height-sm;
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    @include disabledStyle();
+
+    .#{$prefixCls}input-inner {
+      cursor: not-allowed;
+    }
+  }
+
+  &.textarea-wrap {
+    position: relative;
+    padding-bottom: $input-padding + $input-textarea-line-height;
+    padding-right: 0;
+
+    &.focus {
+      outline: 0;
+      @include focusStyle();
+    }
+
+    &.background {
+      background-color: $input-background-gray;
+    }
+
+    &.error {
+      outline: 0;
+      @include errorStyle();
+    }
+    &.is-disabled {
+      @include disabledStyle();
+    }
+
+    .max {
+      font-size: $input-font-size-sm;
+      line-height: $input-textarea-line-height-sm;
+      i {
+        font-style: normal;
+        color: $textarea-max-color;
+        font-weight: normal;
+      }
+      position: absolute;
+      right: $input-padding;
+      bottom: $input-padding;
+      color: $text-color;
+    }
+    .textarea-content {
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:empty:before {
+        content: attr(placeholder);
+        white-space: pre-line;
+        color: $text-color-shallow;
+      }
+      &:not(:empty):before {
+        content: '';
+      }
+    }
+  }
+  &.error {
+    @include errorStyle();
+  }
+}
+
+.#{$prefixCls}input-wrapper {
+  width: 100%;
+  position: relative;
+
+  .search-icon {
+    position: absolute;
+    left: $input-padding ;
+    top: 50%;
+    margin-top: calc(-1 * $icon-size-base / 2);
+  }
+
+  &.search {
+    padding-left: $icon-size-base + $input-padding + 4px;
+    .#{$prefixCls}input {
+      padding-left: $input-padding * 2 + $icon-size-base;
+    }
+  }
+
+  &.clearable {
+    padding-right: $input-padding * 2 + $icon-size-sm;
+  }
+
+  &.background {
+    background-color: $input-background-gray;
+  }
+
+  .clear-icon {
+    position: absolute;
+    right: $input-padding + 1;
+    top: 50%;
+    margin-top: calc(-1 * $icon-size-sm / 2);
+    width: $icon-size-sm;
+    height: $icon-size-sm;
+    cursor: pointer;
+  }
+
+  &.mini {
+    // font-size: 12px;
+    .search-icon {
+      width: $icon-size-sm;
+      height: $icon-size-sm;
+      margin-top: calc(-1 * $icon-size-sm / 2);
+    }
+    .clear-icon {
+      margin-top: calc(-1 * $icon-size-sm / 2);
+    }
+  }
+
+  &.focus {
+    .search-icon {
+      stroke: $primary-color;
+    }
+  }
+}

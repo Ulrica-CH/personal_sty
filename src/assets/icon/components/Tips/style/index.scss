@@ -1,0 +1,21 @@
+.#{$prefixCls}tips {
+  display: inline-flex;
+
+  .tips-icon {
+    cursor: pointer;
+
+    &:hover {
+      fill: $tips-icon-hover-color;
+    }
+  }
+}
+.#{$prefixCls}tips-mini {
+  .#{$prefixCls}popover-inner {
+    padding: $tips-popover-inner-padding;
+    min-height: $tips-popover-inner-min-height;
+  }
+  .#{$prefixCls}tooltip-inner {
+    padding: $tips-popover-inner-padding;
+    min-height: $tips-popover-inner-min-height;
+  }
+}

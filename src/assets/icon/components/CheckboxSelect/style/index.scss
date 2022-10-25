@@ -1,0 +1,181 @@
+@import '../../Input/style/index.scss';
+@import '../../Form/style/common.scss';
+$padding-x: 15px;
+.#{$prefixCls}checkbox-select-wrap {
+  cursor: pointer;
+  width: 100%;
+  min-width: 50px;
+  display: inline-flex;
+  align-items: center;
+  .disabled {
+    .checkbox-select-result {
+      @include disabledStyle;
+    }
+  }
+  .checkbox-select-result {
+    @extend .input;
+    &:hover {
+      .drop-down-icon {
+        stroke: $icon-hover-color;
+      }
+    }
+    font-size: $font-size-sm;
+    background-color: $white;
+    display: flex;
+    &.error {
+      @include errorStyle();
+    }
+    .close-icon {
+      fill: $primary-red;
+      margin-top: 8px;
+      cursor: pointer;
+      width: 10px;
+      height: 10px;
+    }
+    .arrow-zone {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      width: 16px;
+      justify-content: center;
+    }
+    .drop-down-icon {
+      fill: none;
+      stroke: $icon-color;
+      width: 10px;
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+  .mini {
+    &.checkbox-select-result {
+      font-size: 12px;
+      height: 24px;
+      line-height: 22px;
+    }
+  }
+  .open {
+    & > .checkbox-select-result {
+      @include focusStyle();
+      .drop-down-icon {
+        stroke: $select-active-color;
+      }
+      &.error {
+        @include errorStyle();
+      }
+    }
+  }
+  .can-delete {
+    .checkbox-select-result::after {
+      right: 10px;
+    }
+  }
+  .checkbox-select-result-label {
+    max-width: calc(100% - 40px);
+    margin-right: 10px;
+    color: $dark-color;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .checkbox-select-result-value {
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+    // color: $text-color-blue;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-grow: 1;
+    margin-right: 6px;
+  }
+  .dropdown {
+    width: 90%;
+    flex: 1;
+  }
+
+  .empty-result {
+    width: 100%;
+    color: $shallow-color;
+    @include ellipsis;
+  }
+  .close-icon {
+    flex-shrink: 0;
+    margin-left: 5px;
+    width: $icon-size-sm;
+    height: $icon-size-sm;
+    fill: $shallow-color;
+    &:hover {
+      fill: $primary-color;
+    }
+  }
+  .remove-icon {
+    stroke: #fff;
+    width: 9px;
+    height: 9px;
+  }
+}
+
+.#{$prefixCls}checkbox-select-content {
+  padding: 15px 0;
+  border-radius: 4px;
+  background: #fff;
+  .empty-content {
+    color: $base-color;
+    padding: 0 15px;
+  }
+  &.sortable {
+    .checked + .checkbox-label:not(.checked) {
+      border-top: 1px solid $border-color-base;
+      padding-top: 5px;
+    }
+  }
+  .checkbox-select-content-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: $text-color;
+    margin-bottom: 14px;
+    margin-top: -6px;
+  }
+  .checkbox-select-search-input {
+    margin: 0 $padding-x;
+    display: flex;
+    margin-bottom: 15px;
+  }
+  .checkbox-select-content-checkbox {
+    max-height: 12em;
+    overflow-y: auto;
+    @include scrollbar();
+    .checkbox-label {
+      line-height: 24px;
+      display: flex;
+      padding: 0 $padding-x;
+      &:hover {
+        background: $shallow-gray;
+      }
+      & + .checkbox-label {
+        margin-top: 5px;
+      }
+    }
+    .checkbox-label {
+      font-size: $font-size-sm;
+    }
+  }
+  .checkbox-select-button-wrap {
+    padding: 0 $padding-x;
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .cancel {
+      margin-right: 10px;
+      margin-left: auto;
+    }
+  }
+}
+
+.flexBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

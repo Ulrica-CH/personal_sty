@@ -1,0 +1,18 @@
+@import '../../Form/style/common.scss';
+
+.#{$prefixCls}search-input {
+  position: relative;
+  display: inline-flex;
+  white-space: nowrap;
+
+  .#{$prefixCls}btn {
+    margin-left: $margin-xs;
+  }
+
+  &.mini {
+    .#{$prefixCls}input {
+      border-top-right-radius: $input-radius;
+      border-bottom-right-radius: $input-radius;
+    }
+  }
+}
