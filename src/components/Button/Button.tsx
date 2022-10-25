@@ -4,7 +4,9 @@ import cx from 'classnames'
 
 export type ButtonSize = 'lg' | 'sm'
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link' | 'warning'
-interface IButtonProps {
+
+// Record拓展其他props
+interface IButtonProps extends Record<string,any> {
   //  尺寸
   btnSize?: ButtonSize
   //  类型
@@ -44,7 +46,6 @@ const Button: FC<ButtonProps> = ({ classNames = '', disabled = false, btnType = 
   //     </button>
   //   )
   // }
-
   return btnType === 'link' && href
     ? <a className={className} href={href} {...restProps}> {children} </a>
     : <button className={className} disabled={disabled} {...restProps}> {children} </button>
